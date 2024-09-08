@@ -1,0 +1,12 @@
+window.addEventListener("DOMContentLoaded", function () {
+    // Retrieve resume data from localStorage
+    var storedData = localStorage.getItem("resumeData");
+    if (storedData) {
+        var resumeData = JSON.parse(storedData);
+        // Display resume data on the page
+        var resumeContent = document.getElementById("resumeContent");
+        resumeContent.innerHTML = "\n     <section class=\"personal-info flex mb-6\">\n          <div class=\"w-1/2 flex flex-col\">\n         ".concat(resumeData.profilePicture
+            ? "<img src=\"".concat(resumeData.profilePicture, "\" alt=\"").concat(resumeData.name, "\" class=\"w-32 h-32 rounded mb-4 border border-gray-300 shadow-lg\">")
+            : "", "\n\n            <h2 class=\"text-2xl font-semibold text-white\"> ").concat(resumeData.name, "</h2>\n            <p class=\"text-gray-300\">Email: ").concat(resumeData.email, "</p>\n            <p class=\"text-gray-300\">Phone:").concat(resumeData.phone, " </p>\n            <p class=\"text-gray-300\">\n              LinkedIn:\n              <a\n               href=\"https://www.linkedin.com/in/mohsin-ali-51a59a296/\"\n              target=\"_blank\"\n              class=\"text-blue-400 hover:underline\"\n              >linkedin.com/in/mohsin-ali</a\n              >\n            </p>\n          </div>\n          <div class=\"w-2/2 \">\n           \n          </div>\n        </section>\n\n         <section class=\"education mb-6\">\n          <h3 class=\"text-xl font-semibold mb-2 text-white\">Education</h3>\n          <ul class=\"list-disc pl-5 text-gray-300\">\n            <li>\n              ").concat(resumeData.degree, " from ").concat(resumeData.institution, " (").concat(resumeData.graduationYear, ")\n            </li>\n            <li></li>\n          </ul>\n        </section>\n        \n         <section class=\"skills mb-6\">\n          <h3 class=\"text-xl font-semibold mb-2 text-white\">Skills</h3>\n          <ul class=\"list-disc pl-5 text-gray-300\">\n            <li>").concat(resumeData.skills, "</li>\n          </ul>\n        </section>\n\n         <section class=\"work-experience mb-6\">\n          <h3 class=\"text-xl font-semibold mb-2 text-white\">Work Experience</h3>\n          <ul class=\"list-disc pl-5 text-gray-300\">\n            <li>").concat(resumeData.jobTitle, " at ").concat(resumeData.company, " (").concat(resumeData.workYears, " years)</li>\n          </ul>\n        </section>\n      ");
+    }
+});
